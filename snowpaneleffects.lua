@@ -4,6 +4,8 @@ if ( not ConVarExists( "enable_snoweffect" ) ) then
     CreateClientConVar( "enable_snoweffect", 1, true, true )
 end
 
+local Enabled = GetConVar( "enable_snoweffect" )
+
 -- draw circle function from gmod wiki poly page
 function draw.Circle( x, y, radius, seg )
     local cir = {}
@@ -54,7 +56,7 @@ local function createFestive(pnl, x, y, w, h)
     pnl.festivepanel:SetPos(x,y)
     pnl.festivepanel.snowtbl = {}
     pnl.festivepanel.Paint = function(s,w,h)
-        if (tobool(GetConVar("enable_snoweffect"):GetInt())) then
+        if Enabled:GetBool() then
             DrawSnow(s, w, h, 50)
         end
     end
@@ -68,7 +70,7 @@ function pmeta:SetFestive(x, y, w, h)
     local y = y or 0
     local w = w or self:GetWide()
     local h = h or self:GetTall()
-    if (not IsValid(self.festivepanel) and tobool(GetConVar("enable_snoweffect"):GetInt())) then
+    if (not IsValid(self.festivepanel) and Enabled:GetBool() then
         createFestive(self, x, y, w, h)
     end
 end
