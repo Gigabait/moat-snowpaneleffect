@@ -64,6 +64,10 @@ end
 local pmeta = FindMetaTable("Panel")
 
 function pmeta:SetFestive(x, y, w, h)
+    local x = x or 0
+    local y = y or 0
+    local w = w or self:GetWide()
+    local h = h or self:GetTall()
     if (not IsValid(self.festivepanel) and tobool(GetConVar("enable_snoweffect"):GetInt())) then
         createFestive(self, x, y, w, h)
     end
