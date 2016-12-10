@@ -46,9 +46,6 @@ local function DrawSnow(pnl, w, h, amt)
         draw.NoTexture()
         draw.Circle( snowtbl[i][2], snowtbl[i][1], snowtbl[i][3], snowtbl[i][4] )
     end
-    surface.SetDrawColor(230, 230, 250, 200)
-    draw.NoTexture()
-    draw.Circle( 0, h + (w / 2) - 35, w / 2, 20 )
 end
 
 local function createFestive(pnl, x, y, w, h)
