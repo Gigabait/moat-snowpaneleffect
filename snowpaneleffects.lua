@@ -70,7 +70,7 @@ function pmeta:SetFestive(x, y, w, h)
     local y = y or 0
     local w = w or self:GetWide()
     local h = h or self:GetTall()
-    if (not IsValid(self.festivepanel) and Enabled:GetBool() then
+    if (not IsValid(self.festivepanel)) and Enabled:GetBool() then
         createFestive(self, x, y, w, h)
     end
 end
